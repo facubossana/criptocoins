@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from "vue-router";
 import LogInView from "../views/LogInView.vue";
 import HomeView from "../views/HomeView.vue";
 import TransactionsView from "../views/TransactionsView.vue";
+import TransactionInfo from "../views/TransactionInfo.vue";
+import TransactionEdit from "../views/TransactionEdit.vue";
+import TransactionDelete from "../views/TransactionDelete.vue";
 import WalletView from "../views/WalletView.vue";
 
 const routes = [
@@ -19,6 +22,21 @@ const routes = [
     path: "/transactions",
     name: "transactions",
     component: TransactionsView,
+  },
+  {
+    path: "/transactions/:id",
+    name: "transactionInfo",
+    component: TransactionInfo,
+  },
+  {
+    path: "/transactions/:id/edit",
+    name: "transactionEdit",
+    component: TransactionEdit,
+  },
+  {
+    path: "/transactions/:id/delete",
+    name: "transactionDelete",
+    component: TransactionDelete,
   },
   {
     path: "/wallet",

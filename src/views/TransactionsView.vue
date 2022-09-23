@@ -1,29 +1,39 @@
 <template>
   <div class="transactions">
+    <h2>TRANSACCIONES</h2>
     <div v-if="mainView">
       <button
+        class="btn btnCrypto"
         v-for="coin in criptos"
         @click="goToSecondView(coin.type, coin.name)"
         :key="coin.type"
       >
-        comprar / vender {{ coin.name }}
-      </button>
+        comprar / vender {{ coin.name }}</button
+      ><br />
+      <button class="btn btnReturn" @click="backToHome()">Volver</button>
     </div>
     <div v-if="!mainView && !waitingView">
+      <button class="btn btnReturn" @click="returnMainView()">Volver</button>
       <div v-for="agency in Object.keys(agencies)" :key="agency">
         <h3>Nombre: {{ agency }}</h3>
         <p>Precio Compra: {{ agencies[agency].totalAsk }}</p>
         <p>Precio Venta: {{ agencies[agency].totalBid }}</p>
-        <input type="number" v-model="quantity" min="0.000001" />
+        <input id="inpNumber" type="number" v-model="quantity" min="0.000001" />
         <p v-if="errorMessage != ''">{{ errorMessage }}</p>
-        <button @click="buySellCripto('purchase', agencies[agency].totalAsk)">
+        <button
+          class="btn btnSell"
+          @click="buySellCripto('purchase', agencies[agency].totalAsk)"
+        >
           Comprar {{ name }}
         </button>
-        <button @click="buySellCripto('sale', agencies[agency].totalBid)">
+        <button
+          class="btn btnBuy"
+          @click="buySellCripto('sale', agencies[agency].totalBid)"
+        >
           Vender {{ name }}
         </button>
       </div>
-      <button @click="returnMainView()">Volver</button>
+      <button class="btn btnReturn" @click="returnMainView()">Volver</button>
     </div>
     <div v-if="waitingView">
       <h1>Espere un momento, por favor</h1>
@@ -79,6 +89,9 @@ export default {
     }),
   },
   methods: {
+    backToHome() {
+      this.$router.push({ name: "home" });
+    },
     ...mapMutations([]),
     goToSecondView(type, name) {
       this.type = type;
@@ -131,3 +144,31 @@ export default {
   },
 };
 </script>
+<style scoped>
+.btn {
+  box-shadow: inset 0px 1px 0px 0px #fff6af;
+  background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+  background-color: #ffec64;
+  border-radius: 6px;
+  border: 1px solid #ffaa22;
+  display: inline-block;
+  cursor: pointer;
+  color: #333333;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffee66;
+  margin-right: 4px;
+}
+.btnReturn {
+  margin-top: 15px;
+}
+.btnSell {
+  margin-left: 4px;
+}
+#inpNumber {
+  border-radius: 5px;
+}
+</style>

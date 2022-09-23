@@ -12,6 +12,9 @@ export default createStore({
     getTransactions(state) {
       return state.transactions;
     },
+    getTransactionById: (state) => (id) => {
+      return state.transactions.find((transaction) => transaction._id == id);
+    },
     getWallet(state) {
       const wallet = [];
 
@@ -56,9 +59,14 @@ export default createStore({
       state.user = user;
     },
     setTransactions(state, transactions) {
+      transactions = transactions.map((transaction) => {
+        transaction.purchaseValue =
+          transaction.money / transaction.crypto_amount;
+        return transaction;
+      });
+
       state.transactions = transactions;
     },
   },
-  actions: {},
   modules: {},
 });

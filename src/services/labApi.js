@@ -23,7 +23,20 @@ export default {
       money: (price * quantity).toFixed(2),
       datetime: new Date(),
     };
-    console.log(data);
+
     return APIclient.post(`/transactions`, data);
+  },
+
+  editTransaction(transaction) {
+    const data = {
+      money: (transaction.crypto_amount * transaction.purchaseValue).toFixed(2),
+      crypto_amount: transaction.crypto_amount,
+    };
+
+    return APIclient.patch(`/transactions/${transaction._id}`, data);
+  },
+
+  deleteTransaction(transaction) {
+    return APIclient.delete(`/transactions/${transaction._id}`);
   },
 };

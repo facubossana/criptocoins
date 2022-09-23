@@ -54,44 +54,43 @@ export default {
   height: 60vh;
 }
 .submit {
-  background-color: #798bda;
+  background-color: #ebd848;
   border-radius: 25px;
   height: 200px;
   padding: 30px;
+  border: 2px solid #533200;
 }
 .title {
   color: rgb(0, 0, 0);
   font-family: Helvetica, Arial, sans-serif;
 }
 .input {
-  background-color: #303245;
+  background-color: #fff4a4;
   border-radius: 11px;
   border: 0;
   box-sizing: border-box;
-  color: #eee;
+  color: rgb(0, 0, 0);
   font-size: 17px;
   height: 20%;
   padding: 4px 10px 0;
   width: 90%;
 }
-
 .btn {
-  background: #0526dd;
-  border: 1px solid #995309;
-  background-image: linear-gradient(#e957bb, #4056d1);
-  border-radius: 15px;
-  text-shadow: 1px 1px 1px #9daef5;
-  box-shadow: 5px 5px 20px #666666;
-  font-family: Arial;
-  color: #fafafa;
-  font-size: 20px;
-  padding: 13px;
-  text-decoration: none;
+  box-shadow: inset 0px 1px 0px 0px #fff6af;
+  background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+  background-color: #ffec64;
+  border-radius: 6px;
+  border: 1px solid #ffaa22;
+  display: inline-block;
   cursor: pointer;
-}
-.btn:hover {
-  background: #2079b0;
-  background-image: linear-gradient(#4056d1, #e957bb);
+  color: #333333;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffee66;
+  margin-right: 4px;
 }
 h3 {
   margin: 40px 0 0;
@@ -103,8 +102,5 @@ ul {
 li {
   display: inline-block;
   margin: 0 10px;
-}
-a {
-  color: #42b983;
 }
 </style>
