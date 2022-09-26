@@ -2,10 +2,12 @@
   <div>
     <h1>INFORMACIÓN</h1>
     <p><b>Criptomoneda: </b>{{ transaction.crypto_code }}</p>
-    <p>Cantidad: {{ transaction.crypto_amount }}</p>
-    <p>Valor en pesos: {{ transaction.money }}</p>
-    <p>Evento: {{ transaction.action == "purchase" ? "Compra" : "Venta" }}</p>
-    <p>Fecha: {{ transaction.datetime }}</p>
+    <p><b>Cantidad: </b>{{ transaction.crypto_amount }}</p>
+    <p><b>Valor en pesos: </b>{{ transaction.money }}</p>
+    <p>
+      <b>Evento: </b>{{ transaction.action == "purchase" ? "Compra" : "Venta" }}
+    </p>
+    <p><b>Fecha: </b>{{ transaction.datetime }}</p>
     <button class="btn btnReturn" @click="backToHome()">Volver</button>
   </div>
 </template>
